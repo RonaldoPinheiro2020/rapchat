@@ -1,0 +1,22 @@
+# Ambientes Virtuais
+.venv/
+venv/
+env/
+
+# Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Banco de Dados Local (Evita subir dados de teste)
+*.db
+*.sqlite3
+
+# Arquivos de Configuração Sensíveis
+.env
+
+# Uploads do Chat (Mídias locais de teste)
+static/uploads/*
+!static/uploads/.gitkeep
