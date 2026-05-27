@@ -8,10 +8,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 import datetime
 
-from app.database import engine, Base, get_db
-from app.models.chat import User, Message, Conversation
-from app.routers import auth, conversations
-from app.core import security
+# Mude para importações diretas da pasta atual:
+from database import engine, Base, get_db
+from models.chat import User, Message, Conversation
+from routers import auth, conversations
+from core import security
 
 # 1. Inicializa o banco de dados criando as tabelas estruturadas
 Base.metadata.create_all(bind=engine)
