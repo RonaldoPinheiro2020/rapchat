@@ -1,0 +1,35 @@
+name-template: 'RAPchat Pro Backend v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+
+categories:
+  - title: '🚀 Novas Funcionalidades (Features)'
+    labels:
+      - 'feature'
+    prefixes:
+      - 'feat:'
+  - title: '🐛 Correções de Bugs (Bug Fixes)'
+    labels:
+      - 'fix'
+    prefixes:
+      - 'fix:'
+  - title: '📝 Documentação'
+    labels:
+      - 'documentation'
+    prefixes:
+      - 'docs:'
+
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    prefixes:
+      - 'feat:'
+  patch:
+    prefixes:
+      - 'fix:'
+  default: patch
+
+template: |
+  ## O que mudou nesta versão:
+  $CHANGELOG

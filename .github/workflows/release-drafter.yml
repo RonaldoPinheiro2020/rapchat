@@ -1,0 +1,20 @@
+name: Release Drafter Automação
+
+on:
+  push:
+    branches:
+      - main # Dispara o robô a cada commit que entra na branch principal
+
+jobs:
+  update_release_draft:
+    permissions:
+      contents: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      # Robô oficial do GitHub que lê commits e monta o Release automaticamente
+      - os: release-drafter/release-drafter@v6
+        with:
+          config-name: release-drafter-config.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
