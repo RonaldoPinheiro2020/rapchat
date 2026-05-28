@@ -2,7 +2,7 @@
 import datetime
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Text, Table, Boolean
 from sqlalchemy.orm import relationship
-from app.database import Base
+from app.core.database import Base
 
 # Tabela de associação para o relacionamento Muitos-para-Muitos entre Usuários e Conversas (Grupos)
 conversation_members = Table(

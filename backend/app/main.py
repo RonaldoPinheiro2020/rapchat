@@ -1,5 +1,6 @@
 # app/main.py
 import os
+import sys
 import json
 from typing import Dict, List
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Depends
@@ -8,16 +9,20 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 import datetime
 
-# Mude para importações diretas da pasta atual:
-from database import engine, Base, get_db
-from models.chat import User, Message, Conversation
-from routers import auth, conversations
-from core import security
+# Garante que o Python conheça a pasta 'backend' e a pasta 'app' não importa de onde o comando seja rodado
+sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+from app.core.database import engine, Base, get_db
+from app.core import security
+from app.models.chat import User, Message, Conversation
+from app.routers import auth, conversations
+
 
 # 1. Inicializa o banco de dados criando as tabelas estruturadas
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="RAPchat Pro Python API", version="0.1.0")
+app = FastAPI(title="RAPchat Pro Backend", version="0.1.1")
 
 # 2. Configuração de CORS (Alinhado com as permissões do Node.js)
 app.add_middleware(

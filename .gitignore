@@ -1,7 +1,9 @@
 # Ambientes Virtuais
 .venv/
-venv/
-env/
+__pycache__/
+*.pyc
+backend/rapchat.db
+.env
 
 # Cache do Python
 __pycache__/
